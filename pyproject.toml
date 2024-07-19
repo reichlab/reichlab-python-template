@@ -3,7 +3,7 @@ name = "reichlab-python-template"
 description = "Python template for Reich Lab projects"
 license = {text = "MIT License"}
 readme = "README.md"
-requires-python = '>=3.10'
+requires-python = '>=3.11'
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -13,7 +13,6 @@ dynamic = ["version"]
 dependencies = [
     "structlog",
     "rich",
-    "toml"
 ]
 
 [project.optional-dependencies]
@@ -24,7 +23,6 @@ dev = [
     "pre-commit",
     "pytest",
     "ruff",
-    "types-toml",
 ]
 
 [project.entry-points."console_scripts"]
