@@ -1,0 +1,7 @@
+# This is the application config
+# Config values below will be overridden by environment variables of the same name
+# (config field names are not case-sensisitve except on Windows)
+
+default_greeting = "nuqneH!"
+starfleet_api_url = "http://starfleet.api.com"
+starfleet_api_token = "use an environment variable"

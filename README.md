@@ -132,6 +132,18 @@ To add a dependency to the project:
     # a handy sync option that will cleanup unused dependencies
     uv pip sync requirements/requirements-dev.txt
 
+### Updating application configuration
+
+This project comes with a sample application config file (`conf/config.toml` in the `src/[name_of_module]/conf` directory). If your project doesn't require user configuration, you can remove config references from the code and then delete `conf/`.
+
+Modify the application's required config fields in `conf/config.py`, which uses [pydantic-settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/) to describe and type-check application configuration.
+
+Somewhat in keeping with the principle of separating config settings and code, the actual config values can be set in one of two ways when running the applicatiuon.
+
+In order of precedence:
+- environment variables
+- `conf/config.toml`
+
 ## Opinionated notes on Python tooling
 
 [REMOVE THIS SECTION]
@@ -148,3 +160,4 @@ The Python ecosystem is overwhelming! Current opinionated preferences, subject t
 - Logging: [structlog](https://www.structlog.org/en/stable/). I recently stopped fighting Python's built-in logging module and haven't looked back.
 - Linting and formatting: [ruff](https://github.com/astral-sh/ruff) because it does both and is fast.
 - Pre-commit hooks: [pre-commit](https://pre-commit.com/).
+- Application config: [pydantic-settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/) because it enables type-checking and easily enables environment variable overrides.

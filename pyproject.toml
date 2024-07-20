@@ -12,6 +12,7 @@ dynamic = ["version"]
 
 dependencies = [
     "structlog",
+    "pydantic-settings",
     "rich",
 ]
 
