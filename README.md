@@ -14,13 +14,15 @@ There as some opinionated choices here (explained below) which people should ove
 
 If you're using this repo as a template for a new project, make the following changes:
 
-1. Replace all instances of `reichlab-python-template` with the name of your repo/project.
+1. Rename the `reichlab_python_template` directory (under `src`) to the name of your package (no hyphens!).
 
-2. Replace all instances of `reichlab_python_template` with the name of your module (remember that Python module names cannot contain hyphens).
+2. Replace all instances of `reichlab-python-template` with the name of your repo/project.
 
-3. Update [`pyproject.toml`](pyproject.toml). This file is required and will describe several aspects of your project. `pyproject.toml` replaces `setup.py` and is described in detail on [Python's packaging website](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/).
+3. Replace all instances of `reichlab_python_template` with the name of your package (remember that Python module names cannot contain hyphens).
 
-4. Follow the _Setup for local development_ instructions below to ensure that everything works as expected.
+4. Update [`pyproject.toml`](pyproject.toml). This file is required and will describe several aspects of your project. `pyproject.toml` replaces `setup.py` and is described in detail on [Python's packaging website](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/).
+
+5. Follow the _Setup for local development_ instructions below to ensure that everything works as expected.
 
 
 ## Installing and running the package (no development)
@@ -108,9 +110,9 @@ While it's possible to use `pip freeze` to generate a detailed lockfile without 
 
 Additionally, `uv` (and `pip-compile`) are able to use the list of high-level dependencies in `pyproject.toml` to generate a detailed requirements.txt file, which is a good workflow for keeping everything in sync.
 
-To add a dependency to the project:
+To add or remove a project dependency:
 
-1. Add the dependency to the `[dependencies]` section of `pyproject.toml` (or to the `dev` section of `[project.optional-dependencies]`, if it's a development dependency). Don't pin a specific version, since that will make it harder for people to install the package.
+1. Add or remove the dependency in the `[dependencies]` section of `pyproject.toml` (or in the `dev` section of `[project.optional-dependencies]`, if it's a development dependency). Don't pin a specific version, since that will make it harder for users to install the package.
 
 2. Generate updated requirements files:
 
@@ -141,10 +143,10 @@ The Python ecosystem is overwhelming! Current opinionated preferences, subject t
 - To install and manage various versions of Python: [pyenv](https://github.com/pyenv/pyenv) + a local .python-version file
 - To install Python packages that are available from anywhere on the machine, regardless of which Python environment is activated: [pipx](https://pipx.pypa.io/stable/)
 - To create and manage Python virtual environments: [venv](https://docs.python.org/3/library/venv.html).
-    - I like having the environment packages right there in the project directory
-    - Everything single third-party tool for managing virtual environments (_e.g._, poetry, PDM, pipenv) does _too much_ and gets in my way
-- To generate requirements files from `pyproject.toml`: ['uv'](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). I don't usually recommend things this new, but it's orders of magnitude faster than `pip-compile`.
+    - It's handy having the environment packages right there in the project directory
+    - Most third-party tools for managing virtual environments (_e.g._, poetry, PDM, pipenv) do _too much_ and get in the way
+- To generate requirements files from `pyproject.toml`: ['uv'](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It's new, but it's orders of magnitude faster than `pip-compile`.
 - To install dependencies: uv again (again, mostly due to speed; good old pip is another fine option)
-- Logging: [structlog](https://www.structlog.org/en/stable/). I recently stopped fighting Python's built-in logging module and haven't looked back.
+- Logging: [structlog](https://www.structlog.org/en/stable/). Python's built-in logging module is tedious.
 - Linting and formatting: [ruff](https://github.com/astral-sh/ruff) because it does both and is fast.
 - Pre-commit hooks: [pre-commit](https://pre-commit.com/).
