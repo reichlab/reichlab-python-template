@@ -144,7 +144,7 @@ The Python ecosystem is overwhelming! Current opinionated preferences, subject t
 - To install Python packages that are available from anywhere on the machine, regardless of which Python environment is activated: [pipx](https://pipx.pypa.io/stable/)
 - To create and manage Python virtual environments: [venv](https://docs.python.org/3/library/venv.html).
     - It's handy having the environment packages right there in the project directory
-    - Most third-party tools for managing virtual environments (_e.g._, poetry, PDM, pipenv) do _too much_ and get in the way
+    - Most 3rd party tools for managing virtual environments (_e.g._, poetry, PDM, pipenv) do _too much_ and get in the way
 - To generate requirements files from `pyproject.toml`: ['uv'](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It's new, but it's orders of magnitude faster than `pip-compile`.
 - To install dependencies: uv again (again, mostly due to speed; good old pip is another fine option)
 - Logging: [structlog](https://www.structlog.org/en/stable/). Python's built-in logging module is tedious.
